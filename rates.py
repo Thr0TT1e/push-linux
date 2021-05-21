@@ -15,10 +15,12 @@ def fetch_bitcoin():
     for table in soup.find_all("table", attrs={"class" : "table b-b"}):
         for td in table.find_all("td"):
             bitcoin_li.append(td.text)
+    
+    # print(bitcoin_li)
 
-    del bitcoin_li[3:]
+    del bitcoin_li[2:]
 
     # Убираем ненужные символы из элементов списка
     bitcoin_li = map(lambda s : s.strip(), bitcoin_li)
-
+    # print(*bitcoin_li)
     return bitcoin_li
